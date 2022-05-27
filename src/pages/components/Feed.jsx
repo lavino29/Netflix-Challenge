@@ -22,7 +22,7 @@ export const Feed = ({ data, peliculas, busqueda }) => {
     <Box
       sx={{
         display: "flex",
-        justifyContent: "space-between",
+        justifyContent: "flex-start",
         width: "80%",
         margin: "15px",
         flexWrap: 'wrap'
