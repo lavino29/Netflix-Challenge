@@ -19,7 +19,7 @@ export const HomePages = () => {
   const [busqueda, setBusqueda] = useState("cars");
   const urlPrueba = busqueda === "cars" ? "" : url;
   // hoock que controla las peticiones
-  const data = ApiRequest(urlPrueba);
+  const data = ApiRequest(urlPrueba, busqueda);
   // cierra el carter del error
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
