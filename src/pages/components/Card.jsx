@@ -50,7 +50,7 @@ export const CardContenedor = ({ pelicula = {} }) => {
       }}
       sx={{
         margin: "5px",
-        width: { sx: "19px", sm: "200px", md: "210px", lg: "230px" },
+        width: { xs: "165px", sm: "175px", md: "200px", lg: "230px" },
         height: "100%",
         position: "relative",
         "&:hover": { transform: "scale(1.3)", zIndex: "10" },
@@ -65,7 +65,7 @@ export const CardContenedor = ({ pelicula = {} }) => {
           alt={pelicula.title}
           sx={{
             height: "125px",
-            width: "100%",
+            width: { xs: "165px", sm: "175px", md: "200px", lg: "230px" },
             position: "relative",
             "&:hover": { zIndex: "10" },
           }}

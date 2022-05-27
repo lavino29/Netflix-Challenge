@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Box, Skeleton, Typography } from "@mui/material"
+import { Box, Skeleton, Typography, styled } from "@mui/material"
 import { filas } from "../../utils/handleFilas"
 import { CardContenedor } from "./Card"
 import { valido } from '../../utils/valido';
@@ -10,22 +10,29 @@ export const Feed = ({ data, peliculas, busqueda }) => {
    * consigna: 1 a 3 filas mostrando los thumbnails de los resultados.
    * En dispositivos moviles sera superior a 3 filas -> no se específica hacer un carrusel el cual mejoraria la experiencia
    */
+  const SkeletonMain = styled(Skeleton)({
+    background: "#000A21",
+    width: "210px",
+    height: "118px",
+    margin: '15px'
+  });
   const pelicula = filas(peliculas);
   // valido(peliculas, data) verifica realmente el cambia de la data y no solo del loading 
-  return data?.loading && valido(peliculas, data) ? (
+  return data?.loading && !valido(peliculas, data) ? (
     <Box
       sx={{
         display: "flex",
         justifyContent: "space-between",
         width: "80%",
         margin: "15px",
+        flexWrap: 'wrap'
       }}
     >
-      <Skeleton variant="rectangular" width={210} height={118} />
-      <Skeleton variant="rectangular" width={210} height={118} />
-      <Skeleton variant="rectangular" width={210} height={118} />
-      <Skeleton variant="rectangular" width={210} height={118} />
-      <Skeleton variant="rectangular" width={210} height={118} />
+      <SkeletonMain variant="rectangular" />
+      <SkeletonMain variant="rectangular"  />
+      <SkeletonMain variant="rectangular" />
+      <SkeletonMain variant="rectangular"  />
+      <SkeletonMain variant="rectangular"  />
     </Box>
   ) : (
     <Box
@@ -47,16 +54,15 @@ export const Feed = ({ data, peliculas, busqueda }) => {
           display: "flex",
           flexWrap: "wrap",
           justifyContent: {
-            xs: "center",
-            md: "space-between",
-            lg: "flex-start",
-          },
+            lg: "flex-start"
+          }
         }}
       >
         {pelicula.map((element) => (
           <CardContenedor key={element?.id} pelicula={element} />
         ))}
       </Box>
+    
     </Box>
   );
 };

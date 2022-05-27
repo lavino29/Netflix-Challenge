@@ -44,8 +44,8 @@ export const HomePages = () => {
   // al ser un api con peticiones limitada solo se buscara luego de que el usuario de enter o pierda el foco
   const handleSubmit = (e) => {
     if (
-      e.code === "Enter" ||
-      (e.type === "blur" && e.target.value?.length > 1)
+      (e.code === "Enter" || e.type === "blur") &&
+      e.target.value?.length > 1
     ) {
       setBusqueda(e.target.value);
     }
