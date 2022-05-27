@@ -37,7 +37,7 @@ export const HomePages = () => {
       data.data?.results.length > 0
     ) {
       setPeliculas(data.data?.results);
-    } else if( busqueda !=='cars' ) {
+    } else if( busqueda !=='cars' && data.data?.results.length === 0 ) {
       setOpen(true);
     }
   }, [data, busqueda]);
@@ -52,7 +52,7 @@ export const HomePages = () => {
   };
   return (
     <BoxPadre>
-      <NavBar handleSubmit={handleSubmit} />
+      <NavBar handleSubmit={handleSubmit}  />
       <Feed data={data} peliculas={peliculas} busqueda={busqueda} />
       <Stack spacing={2} sx={{ width: "100%" }}>
         <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>

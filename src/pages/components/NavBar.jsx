@@ -14,7 +14,7 @@ import Avatar from '@mui/material/Avatar';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 
-export const NavBar = ({ handleSubmit, busqueda }) => {
+export const NavBar = ({ handleSubmit }) => {
   const [anchorElNav, setAnchorElNav] = useState(null);
   
   const handleOpenNavMenu = (event) => {
