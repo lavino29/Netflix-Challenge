@@ -37,7 +37,7 @@ export const HomePages = () => {
       data.data?.results.length > 0
     ) {
       setPeliculas(data.data?.results);
-    } else {
+    } else if( busqueda !=='cars' ) {
       setOpen(true);
     }
   }, [data, busqueda]);
