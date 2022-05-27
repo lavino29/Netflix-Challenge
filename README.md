@@ -19,5 +19,6 @@ se agrego una peticion en formato de json guardada en utils para cargar la pagin
 
 Link del demo: 
 
+https://netflix-challenge-abstract.vercel.app/
 
 
