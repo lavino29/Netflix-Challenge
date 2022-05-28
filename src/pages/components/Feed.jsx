@@ -18,7 +18,7 @@ export const Feed = ({ data, peliculas, busqueda }) => {
   });
   const pelicula = filas(peliculas);
   // valido(peliculas, data) verifica realmente el cambia de la data y no solo del loading 
-  return data?.loading && !valido(peliculas, data) ? (
+  return data?.loading && !valido(pelicula, data) ? (
     <Box
       sx={{
         display: "flex",
@@ -58,7 +58,8 @@ export const Feed = ({ data, peliculas, busqueda }) => {
           }
         }}
       >
-        {pelicula.map((element) => (
+        {/* mejora el renderizado, unicamente cuando ya son iguales el estado "Pelicula" mas el resultado de la api, se renderiza  */}
+        {(valido(pelicula, data) || busqueda === 'cars') && pelicula.map((element) => (
           <CardContenedor key={element?.id} pelicula={element} />
         ))}
       </Box>
